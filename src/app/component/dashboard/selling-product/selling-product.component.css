@@ -1,0 +1,56 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+
+/* Right box */
+.top-sales {
+	width: 95%;
+	background: #fff;
+	padding: 20px 30px;
+	margin: 0 20px 0 0;
+	border-radius: 12px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.top-sales li {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 10px 0;
+}
+
+.top-sales li a img {
+	height: 40px;
+	width: 40px;
+	object-fit: cover;
+	border-radius: 12px;
+	margin-right: 10px;
+	background: #333;
+}
+
+.top-sales li a {
+	display: flex;
+	align-items: center;
+	text-decoration: none;
+}
+
+.top-sales li .product,
+.price {
+	font-size: 17px;
+	font-weight: 400;
+	color: #333;
+}
+
+.box .title {
+	font-size: 24px;
+	font-weight: 500;
+}
+
+@media (max-width: 1150px) {
+	.top-sales {
+		margin: 0;
+	}
+}

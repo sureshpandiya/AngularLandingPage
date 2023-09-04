@@ -1,0 +1,100 @@
+<section class="forms">
+    <div class="form login">
+        <div class="form-content">
+            <header>Login</header>
+            <form (ngSubmit)="login()" [formGroup]="loginForm">
+                <div class="field input-field">
+                    <input type="email" id="email" formControlName="email" name="email" placeholder="Email">
+                    <div *ngIf="loginForm.get('email')?.errors && isSubmitted">
+                        <div *ngIf="loginForm.get('email')?.hasError('required')">
+                            <div class="error-message">Email is required</div>
+                        </div>
+                        <div *ngIf="loginForm.get('email')?.hasError('email')">
+                            <div class="error-message">Email must be a valid email address.</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 
+                    MInimum length should be 5
+                    Min 1 small and captial leter
+                    Min 1 number
+                    min 1 symbol
+                -->
+                <div class="field input-field">
+                    <input type="{{ passwordFieldType }}" formControlName="password" id="password" name="password"
+                        placeholder="Password" class="password">
+                    <i class="bx" [ngClass]="passwordFieldType === 'password' ? 'bx-hide eye-icon' : 'bx-show eye-icon'"
+                        (click)="togglePasswordVisibility()">
+                    </i>
+                    <div *ngIf="loginForm.get('password')?.errors || isSubmitted">
+                        <div *ngIf="loginForm.get('password')?.hasError('required')" class="error-message">
+                            Password is required.
+                        </div>
+                        <div class="error-message"
+                            [ngClass]="loginForm.get('password').hasError('required') || loginForm.get('password')?.hasError('minlength')?'error-message':'valid-error-message'">
+                            Password Must be atlest 5 Characters!
+                        </div>
+                        <div class="error-message"
+                            [ngClass]="loginForm.get('password').hasError('required') || loginForm.get('password')?.hasError('hasNumber')?'error-message':'valid-error-message'">
+                            Must contain atleast 1 Number!
+                        </div>
+                        <div class="error-message"
+                            [ngClass]="loginForm.get('password').hasError('required') || loginForm.get('password')?.hasError('hasCapitalCase')?'error-message':'valid-error-message'">
+                            Must contain atleast 1 Capital Case!
+                        </div>
+                        <div class="error-message"
+                            [ngClass]="loginForm.get('password').hasError('required') || loginForm.get('password')?.hasError('hasSmallCase')?'error-message':'valid-error-message'">
+                            Must contain atleast 1 Small Case!
+                        </div>
+                        <div class="error-message"
+                            [ngClass]="loginForm.get('password').hasError('required') || loginForm.get('password')?.hasError('hasSpecialCharacters')?'error-message':'valid-error-message'">
+                            Must contain atleast 1 Special Character!
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gender-field d-flex align-items-center">
+                    <label for="gender">GENDER:</label>
+                    <div class="d-flex align-items-center px-3">
+                        <input type="radio" id="male" formControlName="gender" value="male">
+                        <label for="male">Male</label>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <input type="radio" id="female" formControlName="gender" value="female">
+                        <label for="female">Female</label>
+                    </div>
+                </div>
+                <div *ngIf="loginForm.get('gender')?.errors && isSubmitted">
+                    <div *ngIf="loginForm.get('gender')?.hasError('required')" class="error-message">
+                        Gender is required.
+                    </div>
+                </div>
+
+                <div class="mt-3">
+                    <label for="age" class="pe-3">AGE:</label>
+                    <select name="age" id="age" formControlName="age">
+                        <option value="">-Select Age-</option>
+                        <option *ngFor="let ageValue of ageValues" value="{{ageValue}}">{{ ageValue }}</option>
+                    </select>
+                </div>
+                <div *ngIf="loginForm.get('age')?.errors && isSubmitted">
+                    <div *ngIf="loginForm.get('age')?.hasError('required')" class="error-message">
+                        Age is required.
+                    </div>
+                </div>
+
+                <div class="form-link">
+                    <a routerLink="/forgot" class="forgot-pass">Forgot password?</a>
+                </div>
+
+                <div class="field button-field">
+                    <button type="submit" [disabled]="loginForm.invalid">Login</button>
+                </div>
+            </form>
+
+            <div class="form-link">
+                <span>Don't have an account? <a routerLink="/register" class="link signup-link">Signup</a></span>
+            </div>
+        </div>
+    </div>
+</section>

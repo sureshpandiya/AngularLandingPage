@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* left box */
+.recent-sales {
+	width: 85%;
+	background: #fff;
+	padding: 20px 30px;
+	margin: 0 20px;
+	border-radius: 12px;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sales-details {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.box .title {
+	font-size: 24px;
+	font-weight: 500;
+	/* margin-bottom: 10px; */
+}
+
+.sales-details li.topic {
+	font-size: 20px;
+	font-weight: 500;
+}
+
+.sales-details li {
+	list-style: none;
+	margin: 8px 0;
+}
+
+.sales-details li a {
+	font-size: 18px;
+	color: #333;
+	font-size: 400;
+	text-decoration: none;
+}
+
+.box .button {
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+}
+
+.box .button a {
+	color: #fff;
+	background: #0A2558;
+	padding: 4px 12px;
+	font-size: 15px;
+	font-weight: 400;
+	border-radius: 4px;
+	text-decoration: none;
+	transition: all 0.3s ease;
+}
+
+.box .button a:hover {
+	background: #0d3073;
+}

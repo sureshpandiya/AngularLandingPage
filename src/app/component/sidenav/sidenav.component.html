@@ -1,0 +1,20 @@
+<div class="sidebar">
+	<div class="logo-details">
+		<i class='bx bxl-c-plus-plus'></i>
+		<a routerLink="/dashboard" class="logo_name">MenuBar</a>
+	</div>
+	<ul class="nav-links">
+		<li>
+			<a *ngFor="let item of sidebarItems" [routerLink]="item.link" [routerLinkActive]="'active'" class="sidebar-item">
+				<i [class]="item.iconClass"></i>
+				<span class="links_name">{{ item.label }}</span>
+			</a>
+		</li>
+		<li class="log_out">
+			<a routerLink="/">
+				<i class="bx bx-log-out"></i>
+				<span class="links_name">Log out</span>
+			</a>
+		</li>
+	</ul>
+</div>
