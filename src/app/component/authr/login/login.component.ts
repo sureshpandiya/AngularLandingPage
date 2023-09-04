@@ -11,7 +11,7 @@ import { CustomValidators } from 'src/app/custom-validators';
 export class LoginComponent implements OnInit {
 
   passwordFieldType: string = 'password';
-  ageValues: number[] = [];
+  // ageValues: number[] = [];
 
   email: string = '';
   password: string = '';
@@ -33,19 +33,19 @@ export class LoginComponent implements OnInit {
       password: ['', 
         Validators.compose([
           Validators.required, 
-          Validators.minLength(5),
-          CustomValidators.patternValidator(/\d/, { hasNumber: true }), 
-          CustomValidators.patternValidator(/[A-Z]/, { hasCapitalCase: true }), 
-          CustomValidators.patternValidator(/[a-z]/, { hasSmallCase: true }), 
-          CustomValidators.patternValidator(/[ @$!%*?&#]/,{ hasSpecialCharacters: true }),
+          // Validators.minLength(5),
+          // CustomValidators.patternValidator(/\d/, { hasNumber: true }), 
+          // CustomValidators.patternValidator(/[A-Z]/, { hasCapitalCase: true }), 
+          // CustomValidators.patternValidator(/[a-z]/, { hasSmallCase: true }), 
+          // CustomValidators.patternValidator(/[ @$!%*?&#]/,{ hasSpecialCharacters: true }),
         ])
       ],
-      gender: ['', Validators.required],
-      age: [24, Validators.required]
+      // gender: ['', Validators.required],
+      // age: [24, Validators.required]
     });
-    for (let i = 1; i <= 100; i++) {
-      this.ageValues.push(i);
-    }
+    // for (let i = 1; i <= 100; i++) {
+    //   this.ageValues.push(i);
+    // }
   }
 
   ngOnInit(): void {
