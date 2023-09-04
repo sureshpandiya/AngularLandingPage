@@ -26,7 +26,7 @@
                     <i class="bx" [ngClass]="passwordFieldType === 'password' ? 'bx-hide eye-icon' : 'bx-show eye-icon'"
                         (click)="togglePasswordVisibility()">
                     </i>
-                    <div *ngIf="loginForm.get('password')?.errors || isSubmitted">
+                    <div *ngIf="loginForm.get('password')?.errors && isSubmitted">
                         <div *ngIf="loginForm.get('password')?.hasError('required')" class="error-message">
                             Password is required.
                         </div>

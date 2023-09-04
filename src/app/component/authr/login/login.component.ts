@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     password: string
   } = { email: '', password: '' };
   
-  isSubmitted = true;
+  isSubmitted = false;
 
   constructor(private fb: FormBuilder, private router: Router ) {
   }
