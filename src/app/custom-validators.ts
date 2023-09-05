@@ -12,4 +12,18 @@ export class CustomValidators {
       return valid ? null || {} : error;
     };
   }
+
+  static passwordMatchValidator(control: AbstractControl) {
+    const createPswdControl = control.get('createPswd');
+    const confirmPswdControl = control.get('confirmPswd');
+    
+    if (createPswdControl && confirmPswdControl){
+      const createPswd: string = createPswdControl.value;
+      const confirmPassword: string = confirmPswdControl.value;
+      // console.log(createPswd !== confirmPassword);
+      if (createPswd !== confirmPassword) {
+        control.get('confirmPswd')?.setErrors({ NoPassswordMatch: true });
+      }
+    }
+  }
 }
