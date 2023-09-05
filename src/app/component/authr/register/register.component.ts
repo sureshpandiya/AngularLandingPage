@@ -32,7 +32,7 @@ export class RegisterComponent implements OnInit {
           CustomValidators.patternValidator(/[ @$!%*?&#]/, { hasSpecialCharacters: true }),
         ])
       ],
-      confirmPswd: [null, Validators.compose([Validators.required])]
+      confirmPswd: ['', Validators.compose([Validators.required])]
     },
     {
       validator: CustomValidators.passwordMatchValidator
