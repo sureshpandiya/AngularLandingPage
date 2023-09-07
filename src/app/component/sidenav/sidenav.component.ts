@@ -13,6 +13,12 @@ interface SidebarItem {
 })
 export class SidenavComponent implements OnInit {
 
+  isSidebarCollapsed = false;
+
+  onSidebarToggled(isCollapsed: boolean) {
+    this.isSidebarCollapsed = isCollapsed;
+  }
+
   sidebarItems: SidebarItem[] = [
     { label: 'Dashboard', link: '/dashboard', iconClass: 'bx bx-grid-alt' },
     { label: 'Product', link: '/product', iconClass: 'bx bx-box' },
