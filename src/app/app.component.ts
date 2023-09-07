@@ -14,7 +14,6 @@ export class AppComponent {
   
   ngOnInit(): void {
     this.appService.getMessage.subscribe(msg => this.message = msg);
-    console.log(this.message);
   }
 
   isNotLoginPageOrRegisterPage(): boolean {

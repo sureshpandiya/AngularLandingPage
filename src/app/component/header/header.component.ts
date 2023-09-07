@@ -10,17 +10,15 @@ export class HeaderComponent implements OnInit {
 
   isSidebarCollapsed = true;
 
-  @Output() sidebarToggled = new EventEmitter<boolean>();
+  // @Output() sidebarToggled = new EventEmitter<boolean>();
 
   message:boolean=true;
   constructor(private appService:AppService){
     this.appService.getMessage.subscribe(msg => this.message = msg);
-    console.log('headConst---', this.message);
   }
 
   toggleSidebar(){
     this.isSidebarCollapsed = !this.isSidebarCollapsed;
-    
     this.appService.setMessage(this.isSidebarCollapsed);
     console.log('toggleSidebar---', this.message);
   }
