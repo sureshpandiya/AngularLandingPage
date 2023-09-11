@@ -8,19 +8,26 @@ import { AppService } from 'src/app/app.service';
 })
 export class HeaderComponent implements OnInit {
 
-  isSidebarCollapsed = true;
+  // isSidebarCollapsed = true;
 
-  // @Output() sidebarToggled = new EventEmitter<boolean>();
+  // message:boolean=true;
+  // constructor(private appService:AppService){
+  //   this.appService.getMessage.subscribe(msg => this.message = msg);
+  // }
 
-  message:boolean=true;
-  constructor(private appService:AppService){
-    this.appService.getMessage.subscribe(msg => this.message = msg);
-  }
+  // toggleSidebar(){
+  //   this.isSidebarCollapsed = !this.isSidebarCollapsed;
+  //   this.appService.setMessage(this.isSidebarCollapsed);
+  //   console.log('toggleSidebar---', this.message);
+  // }
 
-  toggleSidebar(){
-    this.isSidebarCollapsed = !this.isSidebarCollapsed;
-    this.appService.setMessage(this.isSidebarCollapsed);
-    console.log('toggleSidebar---', this.message);
+  message: boolean = true;
+  @Output() isSidebarToggle = new EventEmitter<boolean>();
+
+  toggleBtn(){
+    console.log(this.isSidebarToggle);
+    this.isSidebarToggle.emit(this.message);
+    this.message = !this.message;
   }
 
   ngOnInit(): void {

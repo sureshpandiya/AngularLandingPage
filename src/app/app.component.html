@@ -1,6 +1,6 @@
 <div *ngIf="isNotLoginPageOrRegisterPage()">
   <app-sidenav></app-sidenav>
-  <app-header></app-header>
+  <app-header (isSidebarToggle)="getData(message)"></app-header>
 </div>
 <section [ngClass]="{'home-section-fullWidth':message === false, 'home-section':currentUrlStatus === true}">
   <router-outlet></router-outlet>
