@@ -3,18 +3,55 @@
 	<div class="form signup">
 		<div class="form-content">
 			<header>Signup</header>
-			<form>
+			<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
 				<div class="field input-field">
 					<input type="email" placeholder="Email" class="input form-control" id="emailId" formControlName="emailId">
+					<div *ngIf="signupForm.get('emailId').invalid && signupForm.get('emailId').touched">
+						<div *ngIf="signupForm.get('emailId').hasError('required')" class="error-message">Email is required.</div>
+					</div>
+				</div>
+
+				<div class="field input-field" style="margin-bottom: 124px;">
+					<input type="password" placeholder="Create password" class="password form-control" id="createPswd"
+						formControlName="createPswd">
+					<div *ngIf="signupForm.get('createPswd')?.errors || isSubmitted">
+						<div *ngIf="signupForm.get('createPswd')?.hasError('required')" class="error-message">
+							Password is required.
+						</div>
+						<div class="error-message"
+							[ngClass]="signupForm.get('createPswd').hasError('required') || signupForm.get('createPswd')?.hasError('minlength')?'error-message':'valid-error-message'">
+							Password Must be atlest 5 Characters!
+						</div>
+						<div class="error-message"
+							[ngClass]="signupForm.get('createPswd').hasError('required') || signupForm.get('createPswd')?.hasError('hasNumber')?'error-message':'valid-error-message'">
+							Must contain atleast 1 Number!
+						</div>
+						<div class="error-message"
+							[ngClass]="signupForm.get('createPswd').hasError('required') || signupForm.get('createPswd')?.hasError('hasCapitalCase')?'error-message':'valid-error-message'">
+							Must contain atleast 1 Capital Case!
+						</div>
+						<div class="error-message"
+							[ngClass]="signupForm.get('createPswd').hasError('required') || signupForm.get('createPswd')?.hasError('hasSmallCase')?'error-message':'valid-error-message'">
+							Must contain atleast 1 Small Case!
+						</div>
+						<div class="error-message"
+							[ngClass]="signupForm.get('createPswd').hasError('required') || signupForm.get('createPswd')?.hasError('hasSpecialCharacters')?'error-message':'valid-error-message'">
+							Must contain atleast 1 Special Character!
+						</div>
+					</div>
 				</div>
 
 				<div class="field input-field">
-					<input type="password" placeholder="Create password" class="password form-control" id="createPswd" formControlName="createPswd">
-				</div>
-
-				<div class="field input-field">
-					<input type="password" placeholder="Confirm password" class="password form-control" id="confirmPswd" formControlName="confirmPswd">
-					<i class='bx bx-hide eye-icon'></i>
+					<input type="{{ passwordFieldType }}" placeholder="Confirm password" class="password form-control"
+						id="confirmPswd" formControlName="confirmPswd">
+					<i class="bx" [ngClass]="passwordFieldType === 'password' ? 'bx-hide eye-icon' : 'bx-show eye-icon'"
+						(click)="togglePasswordVisibility()"></i>
+					<div *ngIf="signupForm.get('confirmPswd').invalid || signupForm.get('confirmPswd').touched">
+						<div *ngIf="signupForm.get('confirmPswd').hasError('required')" class="error-message">Confirmation password is required.
+						</div>
+						<div *ngIf="signupForm.get('confirmPswd').hasError('NoPassswordMatch')" class="error-message">No password Match.
+						</div>
+					</div>
 				</div>
 
 				<div class="field button-field">
@@ -23,7 +60,7 @@
 			</form>
 
 			<div class="form-link">
-				<span>Already have an account? <a routerLink="/" class="link login-link">Login</a></span>
+				<span>Already have an account? <a (click)="getToggle()" class="link login-link">Login</a></span>
 			</div>
 		</div>
 	</div>

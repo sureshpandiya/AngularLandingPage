@@ -47,9 +47,9 @@ form {
 
 .form .field {
 	position: relative;
-	height: 50px;
+	height: 46px;
 	width: 100%;
-	margin-top: 20px;
+	margin-top: 30px;
 	border-radius: 6px;
 }
 
@@ -110,10 +110,20 @@ form {
 .form a {
 	color: #0171d3;
 	text-decoration: none;
+	cursor: pointer;
 }
 
 .form-content a:hover {
 	text-decoration: underline;
+}
+
+.error-message{
+	color: red;
+	font-size: 14px;
+}
+
+.valid-error-message{
+	color: green;
 }
 
 @media screen and (max-width: 400px) {

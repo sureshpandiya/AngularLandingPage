@@ -11,10 +11,7 @@ import { TeamComponent } from './component/team/team.component';
 import { MessageComponent } from './component/message/message.component';
 import { FavoritesComponent } from './component/favorites/favorites.component';
 import { SettingsComponent } from './component/settings/settings.component';
-import { HeaderComponent } from './component/header/header.component';
-import { SidenavComponent } from './component/sidenav/sidenav.component';
 import { RegisterComponent } from './component/authr/register/register.component';
-// import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
   {
@@ -26,17 +23,8 @@ const routes: Routes = [
     component: RegisterComponent,
   },
   {
-    path: 'header',
-    component: HeaderComponent,
-  },
-  {
-    path: 'sidenav',
-    component: SidenavComponent,
-  },
-  {
     path: 'dashboard',
     component: DashboardComponent,
-    //canActivate: [AuthGuard],
   },
   {
     path: 'product',

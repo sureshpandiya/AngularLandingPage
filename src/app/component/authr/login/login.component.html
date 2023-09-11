@@ -26,11 +26,11 @@
                     <i class="bx" [ngClass]="passwordFieldType === 'password' ? 'bx-hide eye-icon' : 'bx-show eye-icon'"
                         (click)="togglePasswordVisibility()">
                     </i>
-                    <div *ngIf="loginForm.get('password')?.errors && isSubmitted">
+                    <div *ngIf="loginForm.get('password')?.errors || isSubmitted">
                         <div *ngIf="loginForm.get('password')?.hasError('required')" class="error-message">
                             Password is required.
                         </div>
-                        <!-- <div class="error-message"
+                        <div class="error-message"
                             [ngClass]="loginForm.get('password').hasError('required') || loginForm.get('password')?.hasError('minlength')?'error-message':'valid-error-message'">
                             Password Must be atlest 5 Characters!
                         </div>
@@ -49,11 +49,11 @@
                         <div class="error-message"
                             [ngClass]="loginForm.get('password').hasError('required') || loginForm.get('password')?.hasError('hasSpecialCharacters')?'error-message':'valid-error-message'">
                             Must contain atleast 1 Special Character!
-                        </div> -->
+                        </div>
                     </div>
                 </div>
 
-                <!-- <div class="gender-field d-flex align-items-center">
+                <div class="gender-field d-flex align-items-center">
                     <label for="gender">GENDER:</label>
                     <div class="d-flex align-items-center px-3">
                         <input type="radio" id="male" formControlName="gender" value="male">
@@ -81,7 +81,7 @@
                     <div *ngIf="loginForm.get('age')?.hasError('required')" class="error-message">
                         Age is required.
                     </div>
-                </div> -->
+                </div>
 
                 <div class="form-link">
                     <a routerLink="/forgot" class="forgot-pass">Forgot password?</a>
